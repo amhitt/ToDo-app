@@ -1,0 +1,48 @@
+.container {
+    margin-top: 10px;
+    padding: 0;
+    display: flex;
+  
+    .task {
+        background: rgb(255, 255, 255);
+        border: 1px solid black;
+        width: 700px;
+        height: 60px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 10px;
+        .taskText {
+            margin-left: 30px;
+            font-size: 18px;
+            p {
+               cursor: pointer; 
+               color: black
+            }
+            
+        }
+        .buttons {
+            margin-right: 30px;
+            display: flex;
+            
+            .check {    
+                width: 25px;
+                height: 25px;
+                background-color: black;
+                cursor: pointer;
+        }
+            .delete {
+                width: 60px;
+                background: none;
+                border: none;
+                
+                img {
+                    width: 20px;
+                    height: 20px;
+                    cursor: pointer;
+                }
+        }
+        }
+    }
+
+}

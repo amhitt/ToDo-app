@@ -1,0 +1,41 @@
+$text-color: rgb(50, 13, 0);
+
+body {
+    color: $text-color 
+}
+
+.newTask{
+    
+    .input {
+    border-radius: 10px;
+    width: 500px;
+    height: 40px;
+    border: none;
+    font-size: 20px;
+    padding: 10px;
+    margin-bottom: 15px;
+    }
+
+.addButton{
+    border-radius: 5px;
+    background: white;
+    width: 70px;
+    height: 60px;
+    border: none;
+    margin-left: 15px;
+    font-size: 20px;
+    font-weight: 700;
+    color: $text-color;
+    cursor: pointer;
+    }
+}
+
+.allTask{
+    background: none;
+    border: none;
+    margin-left: 15px;
+    font-size: 20px;
+    font-weight: 700;
+    color: $text-color;
+    cursor: pointer;
+}
