@@ -1,20 +1,27 @@
-import React, { useState } from "react";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  addToDO,
+  taskChange,
+  completeAllTasks
+} from "../../redux/todoList-reducer";
+import styles from "./Header.module.scss";
 
-import styles from  "./Header.module.scss";
+const TodoList = () => {
+  const dispatch = useDispatch();
+  const task = useSelector((state) => state.newTaskText);
+  const todos = useSelector((state) => state.todos);
 
-const TodoList = (props) => {
-  const [todoText, setTodoText] = useState('');
-  
+  const onTaskChange = (newText) => {
+    dispatch(taskChange(newText));
+  };
+  const addNewTask = () => {
+    dispatch(addToDO());
+  };
 
-
-    // const addNewTask = (e) => {
-    //     e.preventDefault;
-
-    // }
-    // const CompleteAllTask = (e) => {
-    //     e.preventDefault;
-
-    // }
+  const completeAllTodos = () => {
+    dispatch(completeAllTasks())
+  }
 
   return (
     <div className="">
@@ -24,14 +31,21 @@ const TodoList = (props) => {
           className={styles.input}
           type="text"
           placeholder="Write your task here"
-          value={todoText}
-          onChange={e => setTodoText(e.target.value)}
-          
+          value={task}
+          onChange={(e) => onTaskChange(e.target.value)}
         />
-        <button className={styles.addButton}>Add</button>
-        
+        <button onClick={addNewTask} className={styles.addButton}>
+          Add
+        </button>
       </div>
-      <button className={styles.allTask}>Complete all task</button>
+      <button
+       disabled={todos.length === 0} 
+       className={styles.allTask}
+       onClick={completeAllTodos}
+       >
+       
+        Complete all tasks
+      </button>
     </div>
   );
 };
