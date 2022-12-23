@@ -2,12 +2,16 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteAllTasks } from "../../redux/todoList-reducer";
 import styles from "./Footer.module.scss";
+
 const Footer = () => {
   const dispatch = useDispatch();
+  
+  const todos = useSelector((state) => state.todos);
+
   const onDeleteAll = () => {
     dispatch(deleteAllTasks());
   };
-  const todos = useSelector((state) => state.todos);
+
   return (
     <div className={styles.footer}>
       <button
@@ -18,7 +22,7 @@ const Footer = () => {
         Delete all tasks
       </button>
       <div className={styles.text}>Всего задач: {todos.length}</div>
-      <div>Невыполненных задач: {3  }</div>
+      
     </div>
   );
 };

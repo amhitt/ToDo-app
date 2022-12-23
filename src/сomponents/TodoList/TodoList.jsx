@@ -8,27 +8,25 @@ const ToDoList = () => {
 
   const dispatch = useDispatch();
 
-  const onDeleteBut = (id) => {
+  const handleDelete = (id) => {
     dispatch(deleteToDo(id));
   };
   const onToggle = (id) => dispatch(toggleToDo(id));
 
-  useEffect(() => {
-    localStorage.setItem("todos", JSON.stringify(todos));
-  }, [todos]);
-
-  const taskList = todos.map((e) => (
-    <Task
-      id={e.id}
-      task={e.task}
-      completed={e.completed}
-      key={e.id}
-      toggle={onToggle}
-      delete={onDeleteBut}
-    />
-  ));
-
-  return <div>{taskList}</div>;
+  return (
+    <div>
+      {todos.map((e) => (
+        <Task
+          id={e.id}
+          task={e.task}
+          completed={e.completed}
+          key={e.id}
+          toggle={onToggle}
+          deleteHandler={handleDelete}
+        />
+      ))}
+    </div>
+  );
 };
 
 export default ToDoList;

@@ -34,7 +34,7 @@ const TodoList = () => {
           value={task}
           onChange={(e) => onTaskChange(e.target.value)}
         />
-        <button onClick={addNewTask} className={styles.addButton}>
+        <button onClick={task !== "" ? addNewTask : null} className={styles.addButton}>
           Add
         </button>
       </div>
