@@ -1,0 +1,47 @@
+body {
+  color: rgb(50, 13, 0);
+}
+
+.newTask .input {
+  border-radius: 10px;
+  width: 500px;
+  height: 40px;
+  border: none;
+  font-size: 20px;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+.newTask .addButton {
+  border-radius: 5px;
+  background: white;
+  width: 70px;
+  height: 60px;
+  border: none;
+  margin-left: 15px;
+  font-size: 20px;
+  font-weight: 700;
+  color: rgb(50, 13, 0);
+  cursor: pointer;
+}
+
+.allTask {
+  background: none;
+  font-size: 20px;
+  font-weight: 700;
+  color: rgb(50, 13, 0);
+  cursor: pointer;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 10px;
+}
+
+.allTask:active {
+  background: white;
+}
+
+.allTask:disabled {
+  color: rgb(51, 51, 51);
+  border: 1px solid rgb(51, 51, 51);
+  background: none;
+}
+
+/*# sourceMappingURL=Header.module.css.map */

@@ -2,7 +2,7 @@
     border-top: 1px solid black;
     margin-top: 30px;
 
-    .delteAll {
+    .deleteAll {
         margin-top: 20px;
         margin-bottom: 10px;
         background: none;
@@ -14,10 +14,10 @@
         cursor: pointer;
     }
 
-    .delteAll:active {
+    .deleteAll:active {
         background: white;
     }
-    .delteAll:disabled {
+    .deleteAll:disabled {
         color: rgb(51, 51, 51);
         border: 1px solid rgb(51, 51, 51);
         background: none;

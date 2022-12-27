@@ -1,24 +1,31 @@
 import {
-  legacy_createStore as createStore,
-  applyMiddleware
+    legacy_createStore as createStore,
+    applyMiddleware
 } from "redux";
 import todoListReducer from "./todoList-reducer";
-
+import {getFunction, setFunction} from "./localStorage";
+import {configureStore} from "@reduxjs/toolkit";
+import toolkitReducer from "./toolkit-reducer";
+import todoSlice from "./todo-slice";
 
 
 const customMiddleWare = store => next => action => {
-  if (action.type == "APP_UNMMOUNTED") {
-    let setFunction = 
-    localStorage.setItem("todos", JSON.stringify(store.getState().todos))
-  }
-  else if (action.type == "APP_MOUNTED") {
-    const tasksFromLocal = JSON.parse(localStorage.getItem("toods"))
-    
-  }
-  next(action);
+    JSON.parse(localStorage.getItem("todos"))
+    if (action.type === "APP_UNMOUNTED") {
+
+        console.log(action)
+
+    } else if (action.type === "APP_MOUNTED") {
+       // store.getState().todos = JSON.parse(localStorage.getItem("todos"))
+        console.log(action)
+    }
+    next(action);
 }
 
-const store = createStore(todoListReducer, applyMiddleware(customMiddleWare))
 
+export const store = createStore(todoListReducer, applyMiddleware(customMiddleWare))
+
+export const store2 = configureStore({
+    reducer: todoSlice
+})
 window.store = store
-export default store

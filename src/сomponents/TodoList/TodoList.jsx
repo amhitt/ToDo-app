@@ -1,17 +1,18 @@
-import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteToDo, toggleToDo } from "../../redux/todoList-reducer";
-import Task from "./Task/Task";
+import {Task} from "./Task/Task";
+import {deleteToDo, toggleToDo} from "../../redux/todo-slice";
 
-const ToDoList = () => {
+
+
+export const ToDoList = () => {
   const todos = useSelector((state) => state.todos);
 
   const dispatch = useDispatch();
 
-  const handleDelete = (id) => {
-    dispatch(deleteToDo(id));
-  };
-  const onToggle = (id) => dispatch(toggleToDo(id));
+  const handleDelete = (payload) =>
+      dispatch(deleteToDo(payload));
+
+  const onToggle = (payload) => dispatch(toggleToDo(payload));
 
   return (
     <div>
@@ -29,4 +30,3 @@ const ToDoList = () => {
   );
 };
 
-export default ToDoList;
